@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from "mobx-react";
 
 import { Section } from './Section';
-import { store } from './Store';
+import { store } from '../Store';
 
 
 export const Page = observer(() => (

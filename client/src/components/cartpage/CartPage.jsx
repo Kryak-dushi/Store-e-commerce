@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Cart } from './Cart';
+import { Cart } from './cart/Cart';
 import { CartSummary } from './CartSummary';
 import { observer } from "mobx-react";
-import { store } from './Store';
+import { store } from '../Store';
 
 
 export const CartPage = observer(() => (

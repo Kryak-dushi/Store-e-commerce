@@ -1,14 +1,14 @@
 import './index.css';
-import './card.css';
-import './footer.css';
-import './header.css';
-import './cart.css';
-import './cartcard.css';
+import './components/mainpage/card/card.css';
+import './components/footer/footer.css';
+import './components/header/header.css';
+import './components/cartpage/cart/cart.css';
+import './components/cartpage/cartcard/cartcard.css';
 
-import { Page } from './components/Page';
-import { CartPage } from './components/CartPage';
-import { Header } from './components/Header';
-import { Footer } from './components/Footer';
+import { Page } from './components/mainpage/Page';
+import { CartPage } from './components/cartpage/CartPage';
+import { Header } from './components/header/Header';
+import { Footer } from './components/footer/Footer';
 
 import React from "react";
 import {

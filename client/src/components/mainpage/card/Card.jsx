@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from './Store';
+import { store } from '../../Store';
 
 export const Card = ({ item }) => {
     const clickHandler = () => {

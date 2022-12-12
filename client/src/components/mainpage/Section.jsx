@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card } from './Card';
+import { Card } from './card/Card';
 
 export const Section = ({ title, items }) => {
     return (

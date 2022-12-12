@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from './Store';
+import { store } from '../Store';
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
