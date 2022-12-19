@@ -7,7 +7,24 @@ import { store } from '../Store';
 
 export const Page = observer(() => (
     <div className="content">
-        <Section title={'Перкуссионные'} items={store.getPercussion()} />
-        <Section title={'Духовые'} items={store.getWind()} />
+        {
+            store.getPercussion() && <Section title={'Percussion'} items={store.getPercussion()} />
+        }
+
+        {
+            store.getWind() && <Section title={'Wind'} items={store.getWind()} />
+        }
+
+        {
+            store.getStringed() && <Section title={'Stringed'} items={store.getStringed()} />
+        }
+
+        {
+            store.getKeyboard() && <Section title={'Keyboard'} items={store.getKeyboard()} />
+        }
+
+        {
+            store.getOther() && <Section title={'Other'} items={store.getOther()} />
+        }
     </div>
 ))

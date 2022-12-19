@@ -1,6 +1,8 @@
 import { makeAutoObservable } from "mobx";
 
-const headphones = [
+const headphones = [];
+
+/*const headphones = [
     {
         sku: 1,
         img: "./assets/trumpet.png",
@@ -52,6 +54,7 @@ const headphones = [
         category: "percussion",
     }
 ];
+*/
 
 class Store {
     cart = {};
@@ -70,6 +73,18 @@ class Store {
 
     getPercussion() {
         return headphones.filter((item) => item.category==="percussion");
+    }
+    
+    getStringed() {
+        return headphones.filter((item) => item.category==="stringed");
+    }
+
+    getKeyboard() {
+        return headphones.filter((item) => item.category==="keyboard");
+    }
+    
+    getOther() {
+        return headphones.filter((item) => item.category==="other");
     }
 
     getCounter() {
