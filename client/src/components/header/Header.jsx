@@ -21,6 +21,9 @@ export const Header = observer(() => (
                     )
                 }
             </div>
+            <div className="icon_wrapper">
+                <Link to="/login"><div>Log in</div></Link>                
+            </div>
         </div>
     </header>
 ))

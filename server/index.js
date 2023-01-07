@@ -1,22 +1,44 @@
 const { MongoClient } = require("mongodb");
+const express = require("express");
+const app = express();
+const PORT = 3000;
+const uri = "mongodb://localhost:27017";
 
-// Connection URI
-const uri =  "mongodb://localhost:27017";
-
-// Create a new MongoClient
 const client = new MongoClient(uri);
+const db = client.db("mstore_db");
 
-async function run() {
-  try {
-    await client.connect();
+app.get('/goods', (req, res) => {
+  const goods = [];
+  db
+    .collection("goods")
+    .find({})
+    .forEach(good => goods.push(good))
+    .then(() => {
+      res
+        .status(200)
+        .json(goods);
+    })
+    .catch(() => {
+      res.status(500)
+        .json({ error: "Error" })
+    })
+})
 
-    const res = await client.db("mstore_db").collection("goods").find({}).toArray();
+app.get('/cart', (req,res) =>{
+  const cart = [];
+  db
+    .collection("users")
+    .find({cart:{$exists: true, $not: {$size: 0}}})
+    .forEach(user => cart.push(user.cart))
+    .then(() => {
+      res
+        .status(200)
+        .json(cart);
+    })
+    .catch(() => {
+      res.status(500)
+        .json({ error: "Error" })
+    })
+})
 
-    console.log(res[0]);
-  } finally {
-    await client.close();
-  }
-}
-
-
-run().catch(console.dir);
+app.listen(PORT);

@@ -8,23 +8,27 @@ import { store } from '../Store';
 export const Page = observer(() => (
     <div className="content">
         {
-            store.getPercussion() && <Section title={'Percussion'} items={store.getPercussion()} />
+            store.isEmpty() && <span className="section_name">Store is empty. Try again later.</span>
         }
 
         {
-            store.getWind() && <Section title={'Wind'} items={store.getWind()} />
+            (store.getPercussion().length !== 0) && <Section title={'Percussion'} items={store.getPercussion()} />
         }
 
         {
-            store.getStringed() && <Section title={'Stringed'} items={store.getStringed()} />
+            (store.getWind().length !== 0) && <Section title={'Wind'} items={store.getWind()} />
         }
 
         {
-            store.getKeyboard() && <Section title={'Keyboard'} items={store.getKeyboard()} />
+            (store.getStringed().length !== 0) && <Section title={'Stringed'} items={store.getStringed()} />
         }
 
         {
-            store.getOther() && <Section title={'Other'} items={store.getOther()} />
+            (store.getKeyboard().length !== 0) && <Section title={'Keyboard'} items={store.getKeyboard()} />
+        }
+
+        {
+            (store.getOther().length !== 0) && <Section title={'Other'} items={store.getOther()} />
         }
     </div>
 ))

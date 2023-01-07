@@ -1,11 +1,10 @@
 import { makeAutoObservable } from "mobx";
+//import { run } from "../../../server/index.js"
 
-const headphones = [];
-
-/*const headphones = [
+/*const goods = [
     {
         sku: 1,
-        img: "./assets/trumpet.png",
+        img: "./assets/instruments/trumpet.png",
         title: "Труба",
         price: 12900,
         priceBeforeDiscount: 13500,
@@ -14,7 +13,7 @@ const headphones = [];
     },
     {
         sku: 2,
-        img: "./assets/handpan.png",
+        img: "./assets/instruments/handpan.png",
         title: "Хэндпан",
         price: 8500,
         rate: 4.9,
@@ -22,7 +21,7 @@ const headphones = [];
     },
     {
         sku: 3,
-        img: "./assets/drum.png",
+        img: "./assets/instruments/drum.png",
         title: "Барабан",
         price: 6800,
         priceBeforeDiscount: 9100,
@@ -31,7 +30,7 @@ const headphones = [];
     },
     {
         sku: 4,
-        img: "./assets/saxophone.png",
+        img: "./assets/instruments/saxophone.png",
         title: "Саксофон",
         price: 18700,
         rate: 4.7,
@@ -39,7 +38,7 @@ const headphones = [];
     },
     {
         sku: 5,
-        img: "./assets/trombone.png",
+        img: "./assets/instruments/trombone.png",
         title: "Тромбон",
         price: 13000,
         rate: 4.3,
@@ -47,7 +46,7 @@ const headphones = [];
     },
     {
         sku: 6,
-        img: "./assets/jembe.png",
+        img: "./assets/instruments/jembe.png",
         title: "Джембе",
         price: 14600,
         rate: 3.6,
@@ -58,9 +57,11 @@ const headphones = [];
 
 class Store {
     cart = {};
+    goods = [];
 
     constructor() {
         makeAutoObservable(this);
+        //run().then(item => { this.goods.push(item) });
     }
 
     getCart() {
@@ -68,23 +69,27 @@ class Store {
     }
 
     getWind() {
-        return headphones.filter((item) => item.category==="wind");
+        return this.goods.filter((item) => item.category === "wind");
     }
 
     getPercussion() {
-        return headphones.filter((item) => item.category==="percussion");
+        return this.goods.filter((item) => item.category === "percussion");
     }
-    
+
     getStringed() {
-        return headphones.filter((item) => item.category==="stringed");
+        return this.goods.filter((item) => item.category === "stringed");
     }
 
     getKeyboard() {
-        return headphones.filter((item) => item.category==="keyboard");
+        return this.goods.filter((item) => item.category === "keyboard");
     }
-    
+
     getOther() {
-        return headphones.filter((item) => item.category==="other");
+        return this.goods.filter((item) => item.category === "other");
+    }
+
+    isEmpty() {
+        return (this.goods.length === 0) ? true : false;
     }
 
     getCounter() {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const CartSummary = ({ amount }) => {
     return (
@@ -7,7 +8,7 @@ export const CartSummary = ({ amount }) => {
                 <div className="cart_summary_title">ИТОГО</div>
                 <div className="cart_summary_amount">{amount + " ₽"}</div>
             </div>
-            <button className="cart_action">Перейти к оформлению</button>
+            <Link to="/order"><button className="cart_action">Перейти к оформлению</button></Link>
         </div>
     );
 };
