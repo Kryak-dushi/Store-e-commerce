@@ -1,44 +1,23 @@
-const { MongoClient } = require("mongodb");
 const express = require("express");
-const app = express();
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', true);
+
 const PORT = 3000;
-const uri = "mongodb://localhost:27017";
+const URL = "mongodb://localhost:27017/mstore_db";
 
-const client = new MongoClient(uri);
-const db = client.db("mstore_db");
+mongoose
+  .connect(URL)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log(err));
 
-app.get('/goods', (req, res) => {
-  const goods = [];
-  db
-    .collection("goods")
-    .find({})
-    .forEach(good => goods.push(good))
-    .then(() => {
-      res
-        .status(200)
-        .json(goods);
-    })
-    .catch(() => {
-      res.status(500)
-        .json({ error: "Error" })
-    })
-})
+const goodRouter = require('./routes/good-router');
+const userRouter = require('./routes/user-router');
+const cartRouter = require('./routes/cart-router');
 
-app.get('/cart', (req,res) =>{
-  const cart = [];
-  db
-    .collection("users")
-    .find({cart:{$exists: true, $not: {$size: 0}}})
-    .forEach(user => cart.push(user.cart))
-    .then(() => {
-      res
-        .status(200)
-        .json(cart);
-    })
-    .catch(() => {
-      res.status(500)
-        .json({ error: "Error" })
-    })
-})
+const app = express();
+app.use(express.json());
+app.use(goodRouter);
+app.use(userRouter);
+app.use(cartRouter);
 
 app.listen(PORT);
