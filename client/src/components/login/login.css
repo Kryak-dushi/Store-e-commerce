@@ -1,17 +1,27 @@
-.login_form {
+.login_form,
+.registration_form {
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 500px;
-    height: 230px;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
 
-.login_input_container {
+.login_form {
+    height: 230px;
+}
+
+.registration_form {
+    height: 280px;
+}
+
+
+.login_input_container,
+.registration_input_container {
     display: flex;
     justify-content: space-around;
 }
@@ -42,10 +52,17 @@
 }
 
 form.login_form input,
-form.login_form label {
+form.login_form label,
+form.registration_form input,
+form.registration_form label {
     margin: 10px 0px;
     font-size: 20px;
     line-height: 30px;
     color: black;
     font-weight: 400;
+}
+
+.have_account {
+    width: 415px;
+    text-align: center;
 }
