@@ -19,9 +19,9 @@ export const CartCard = ({ item }) => {
         <div className="cart_card">
             <div className="cart_card_row">
                 <div className="cart_card_info">
-                    <img src={item.img} alt={item.title} className="cart_card_img" />
+                    <img src={item.image} alt={item.name} className="cart_card_img" />
                     <div className="cart_card_text_info">
-                        <div className="cart_card_title">{item.title}</div>
+                        <div className="cart_card_title">{item.name}</div>
                         <div className="cart_card_price">{item.price + " ₽"}</div>
                     </div>
                 </div>

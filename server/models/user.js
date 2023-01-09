@@ -11,12 +11,13 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: [true, 'Email is required'],
+        unique: true,
         match: /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/,
     },
     password: {
         type: String,
         required: [true, 'Password is required'],
-        match: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, //Minimum eight characters, at least one letter and one number
+        // match: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, //Minimum eight characters, at least one letter and one number
     },
     cart: [],
     isAdmin: Boolean

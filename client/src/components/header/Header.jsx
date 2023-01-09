@@ -9,11 +9,6 @@ export const Header = observer(() => (
 
         <div className="icons_container">
             <div className="icon_wrapper">
-                <Link><img className="icon" alt="Favouries" src="./assets/Favourites.svg" /></Link>
-                {/* <div className="counter">1</div> */}
-            </div>
-
-            <div className="icon_wrapper">
                 <Link to="/cart"><img className="icon" alt="Cart" src="./assets/Cart.svg" /></Link>
                 {
                     store.getCounter() > 0 && (
@@ -22,7 +17,7 @@ export const Header = observer(() => (
                 }
             </div>
             <div className="icon_wrapper">
-                <Link to="/login"><div>Log in</div></Link>                
+                <Link to="/registration"><div>Log in</div></Link>
             </div>
         </div>
     </header>

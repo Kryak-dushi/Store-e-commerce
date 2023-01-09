@@ -30,7 +30,37 @@ const updateUser = (req, res) => {
         })
 }
 
+const getUserById = (req, res) => {
+    User
+        .findById(req.params.id)
+        .then((result) => {
+            res
+                .status(200)
+                .json(result);
+        })
+        .catch((error) => {
+            res.status(500)
+                .json(error);
+        })
+}
+
+const getUserByEmail = (req, res) => {
+    User
+        .findOne({ email: req.body.email })
+        .then((result) => {
+            res
+                .status(200)
+                .json(result);
+        })
+        .catch((error) => {
+            res.status(500)
+                .json(error);
+        })
+}
+
 module.exports = {
     createUser,
-    updateUser
+    updateUser,
+    getUserById,
+    getUserByEmail
 }

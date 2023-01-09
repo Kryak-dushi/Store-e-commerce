@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-//import { run } from "../../../server/index.js"
 
 /*const goods = [
     {
@@ -58,10 +57,26 @@ import { makeAutoObservable } from "mobx";
 class Store {
     cart = {};
     goods = [];
+    currentGood;
 
     constructor() {
         makeAutoObservable(this);
-        //run().then(item => { this.goods.push(item) });
+    }
+
+    setGoods(goods) {
+        this.goods = goods;
+    }
+
+    setCurrentGood(good) {
+        this.currentGood = good;
+    }
+
+    getCurrentGood() {
+        return this.currentGood;
+    }
+
+    getGoods() {
+        return this.goods;
     }
 
     getCart() {

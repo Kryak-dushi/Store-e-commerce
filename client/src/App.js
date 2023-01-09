@@ -12,6 +12,7 @@ import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { Registration } from './components/login/Registration';
 import { Login } from './components/login/Login';
+import { Cardinfo } from './components/mainpage/card/CardInfo';
 
 import React from "react";
 import {
@@ -29,6 +30,8 @@ export default function App() {
           <Route path="/cart" element={<CartPage />}>
           </Route>
           <Route path="/" element={<Page />}>
+          </Route>
+          <Route exact path="/goods/:id" element={<Cardinfo/>}>
           </Route>
           <Route path="/registration" element={<Registration />}>
           </Route>
