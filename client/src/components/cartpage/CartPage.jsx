@@ -8,7 +8,7 @@ import { store } from '../Store';
 
 export const CartPage = observer(() => (
     <div className="cart">
-        <div className="cart_title">Корзина</div>
+        <div className="cart_title">Cart</div>
         <div className="cart_content">
             <Cart items={store.getCart()}/>
             <CartSummary amount={store.getTotalPrice()} />

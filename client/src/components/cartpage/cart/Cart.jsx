@@ -6,7 +6,7 @@ export const Cart = ({ items }) => {
         <div className="cart_cards_container">
             {
                 (items.length === 0)
-                    ? <div className="cart_empty">Корзина пуста</div>
+                    ? <div className="cart_empty">Cart is empty</div>
                     : items.map((item, i) => {
                         return <CartCard item={item} key={i} />;
                     })

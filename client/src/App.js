@@ -21,6 +21,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { Order } from './components/cartpage/Order';
 
 export default function App() {
   return (
@@ -38,7 +39,7 @@ export default function App() {
           </Route>
           <Route path="/login" element={<Login />}>
           </Route>
-          <Route path="/order" element={<Login />}>
+          <Route path="/order" element={<Order />}>
           </Route>
         </Routes>
         <Footer />
