@@ -53,7 +53,6 @@ class Store {
     }
 
     getCountBySKU(id) {
-        console.log(this.cart);
         return this.cart[id].count;
     }
 
