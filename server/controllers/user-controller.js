@@ -46,7 +46,7 @@ const getUserById = (req, res) => {
 
 const getUserByEmail = (req, res) => {
     User
-        .findOne({ email: req.body.email })
+        .findOne({ email: req.body.email, password: req.body.password })
         .then((result) => {
             res
                 .status(200)

@@ -1,5 +1,6 @@
 import './index.css';
 import './components/mainpage/card/card.css';
+import './components/mainpage/card/cardinfo.css';
 import './components/footer/footer.css';
 import './components/header/header.css';
 import './components/cartpage/cart/cart.css';
@@ -31,7 +32,7 @@ export default function App() {
           </Route>
           <Route path="/" element={<Page />}>
           </Route>
-          <Route exact path="/goods/:id" element={<Cardinfo/>}>
+          <Route exact path="/goods/:id" element={<Cardinfo />}>
           </Route>
           <Route path="/registration" element={<Registration />}>
           </Route>

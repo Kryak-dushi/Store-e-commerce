@@ -12,7 +12,6 @@ export const Registration = () => {
         user.name = nameRef.current.value;
         user.email = emailRef.current.value;
         user.password = passwordRef.current.value;
-        console.log(user);
 
         createUser(user).catch(err => console.log(err));
     }

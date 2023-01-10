@@ -21,6 +21,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
+app.options('*', cors()) 
 app.use(goodRouter);
 app.use(userRouter);
 app.use(cartRouter);
