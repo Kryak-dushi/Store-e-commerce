@@ -1,0 +1,88 @@
+.infocard {
+    width: 1110px;
+    height: fit-content;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 15px;
+    display: flex;
+}
+
+.infocard_image_container {
+    margin: 40px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.infocard_img {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: 40px auto;
+}
+
+.main_info {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
+}
+
+.infocard_row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infocard_name {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.infocard_code {
+    color: #838383;
+}
+
+.infocard_price {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 21px;
+    color: #FFA542;
+}
+
+.infocard_price_before_discount {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    text-decoration-line: line-through;
+    color: #FFCE7F;
+}
+
+.infocard_action {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 40px;
+    color: #000000;
+    background-color: white;
+    border: 0;
+}
+
+.card_action:hover {
+    color: #838383;
+}
+
+
+@media (max-width:1140px) {
+    .infocard {
+        width: 730px;
+    }
+}
