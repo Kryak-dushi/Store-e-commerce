@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
-import { loginUser } from '../../api';
+import Cookies from 'js-cookie';
+import { loginUser, getCartById } from '../../api';
 import { useNavigate } from "react-router-dom";
+import { store } from '../Store';
 
 export const Login = () => {
     const emailRef = useRef(null);
-    const passwordRef = useRef(null); 
+    const passwordRef = useRef(null);
     const navigate = useNavigate();
 
     function submitHandler() {
@@ -15,8 +17,9 @@ export const Login = () => {
         loginUser(params)
             .then((r) => {
                 if (!!r) {
-                    console.log(r._id);
+                    Cookies.set("userid", r._id);
                     navigate("/");
+                    getCartById(r._id).finally((res) => store.setCart(res));
                 }
                 else {
                     emailRef.current.value = '';

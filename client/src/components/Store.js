@@ -16,8 +16,8 @@ class Store {
         return this.goods;
     }
 
-    getCart() {
-        return Object.values(this.cart).map((item) => (item.item));
+    setCart(cart) {
+        this.cart = cart;
     }
 
     getWind() {
@@ -40,24 +40,25 @@ class Store {
         return this.goods.filter((item) => item.category === "other");
     }
 
-    isEmpty() {
-        return (this.goods.length === 0) ? true : false;
+    getCart() {
+        return Object.values(this.cart).map((item) => (item.item));
     }
 
     getCounter() {
         return Object.values(this.cart).reduce((res, item) => { return res + item.count; }, 0);
     }
 
-    getTotalPriceBySKU(sku) {
-        return this.getCountBySKU(sku) * this.cart[sku].item.price;
+    getTotalPriceBySKU(id) {
+        return this.getCountBySKU(id) * this.cart[id].item.price;
     }
 
-    getCountBySKU(sku) {
-        return this.cart[sku].count;
+    getCountBySKU(id) {
+        console.log(this.cart);
+        return this.cart[id].count;
     }
 
     getTotalPrice() {
-        return Object.values(this.cart).reduce((res, item) => { return res + this.getTotalPriceBySKU(item.item.sku); }, 0);
+        return Object.values(this.cart).reduce((res, item) => { return res + this.getTotalPriceBySKU(item.item._id); }, 0);
     }
 }
 

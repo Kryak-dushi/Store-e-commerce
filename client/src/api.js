@@ -18,9 +18,12 @@ const loginUser = (params) => fetch('http://localhost:3001/userlogin', {
     body: JSON.stringify(params)
 }).then(r => r.json());
 
+const getCartById = (id) => fetch(`http://localhost:3001/cart/${id}`).then(r => r.json());
+
 export {
     getGoods,
     getGoodById,
     createUser,
-    loginUser
+    loginUser,
+    getCartById
 };

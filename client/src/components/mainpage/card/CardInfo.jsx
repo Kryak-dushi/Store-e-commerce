@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Cookies from 'js-cookie';
 import { observer } from 'mobx-react';
 import { useParams } from "react-router-dom";
 import { getGoodById } from '../../../api'
@@ -13,12 +14,12 @@ export const Cardinfo = observer(() => {
     }, [id]);
 
     const clickHandler = () => {
-        if (store.cart[item.sku]) {
-            store.cart[item.sku].count++;
+        if (store.cart[item._id]) {
+            store.cart[item._id].count++;
         } else {
             store.cart = {
                 ...store.cart,
-                [item.sku]: {
+                [item._id]: {
                     item,
                     count: 1
                 }
@@ -47,7 +48,9 @@ export const Cardinfo = observer(() => {
                     <span className="card_rate">{item.rate}</span>
                 </div>
             </div>
-            <button className="infocard_action" onClick={clickHandler}>Buy</button>
+            {
+                Cookies.get("userid") && <button className="infocard_action" onClick={clickHandler}>Buy</button>
+            }
         </div>
     </div>
 });

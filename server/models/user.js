@@ -1,3 +1,4 @@
+import { goodSchema } from './good';
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -19,8 +20,14 @@ const userSchema = new Schema({
         required: [true, 'Password is required'],
         // match: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, //Minimum eight characters, at least one letter and one number
     },
-    cart: [],
-    isAdmin: Boolean
+    cart: [{
+        count: {
+            type: Number,
+            min: 1,
+            max: 10
+        },
+        good: goodSchema
+    }]
 })
 
 const User = mongoose.model("User", userSchema);

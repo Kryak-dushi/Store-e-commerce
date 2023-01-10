@@ -4,15 +4,15 @@ import { store } from '../../Store';
 
 export const CartCard = ({ item }) => {
     const addClickHandler = () => {
-        store.cart[item.sku].count++;
+        store.cart[item._id].count++;
     }
 
     const subClickHandler = () => {
-        store.cart[item.sku].count--;
+        store.cart[item._id].count--;
     }
 
     const delClickHandler = () => {
-        delete store.cart[item.sku];
+        delete store.cart[item._id];
     }
 
     return (
@@ -30,14 +30,14 @@ export const CartCard = ({ item }) => {
             <div className="cart_card_row">
                 <div className="cart_card_counter_container">
                     {
-                        store.getCountBySKU(item.sku) > 1
+                        store.getCountBySKU(item._id) > 1
                             ? <button className="cart_card_button" onClick={subClickHandler}>−</button>
                             : <button disabled className="cart_card_button" onClick={subClickHandler}>−</button>
                     }
-                    <div className="cart_card_counter">{store.getCountBySKU(item.sku)}</div>
+                    <div className="cart_card_counter">{store.getCountBySKU(item._id)}</div>
                     <button className="cart_card_button" onClick={addClickHandler}>+</button>
                 </div>
-                <div className="cart_card_amount">{store.getTotalPriceBySKU(item.sku) + " ₽"}</div>
+                <div className="cart_card_amount">{store.getTotalPriceBySKU(item._id) + " ₽"}</div>
             </div>
         </div>
     );

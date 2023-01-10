@@ -51,3 +51,5 @@ const goodSchema = new Schema({
 const Good = mongoose.model("Good", goodSchema);
 
 module.exports = Good;
+
+export { goodSchema };
