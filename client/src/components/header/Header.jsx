@@ -17,7 +17,7 @@ export const Header = observer(() => (
                 }
             </div>
             <div className="icon_wrapper">
-                <Link to="/registration"><div>Log in</div></Link>
+                <Link to="/registration"><img className="icon" alt="Login icon" src="./assets/login.svg" /></Link>
             </div>
         </div>
     </header>

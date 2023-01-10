@@ -13,6 +13,10 @@ export const Page = observer(() => {
 
 
     return <div className="content">
-        <Section title={'Goods'} items={store.getGoods()} />
+        <Section title={'Keyboard'} items={store.getKeyboard()} />
+        <Section title={'Percussion'} items={store.getPercussion()} />
+        <Section title={'Stringed'} items={store.getStringed()} />
+        <Section title={'Wind'} items={store.getWind()} />
+        <Section title={'Other'} items={store.getOther()} />
     </div>
 })
